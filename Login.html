@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Login.css">
+    <link rel="Website Icon" type="png" href="img/logo-title.png">
+    <title>Login & Singup</title>
+</head>
+
+<body>
+    <div class="boxall-banner">
+        <div class="box-fence"></div>
+        <div class="boxwrap-2Element">
+            <div class="box-image"></div>
+            <div class="box-children">
+                <a href="index.html">
+                    <div class="children-logo"></div>
+                </a>
+                <div class="children-text">
+                    <h2>Welcome to Klook!</h2>
+                    <p>Từ chuyến phượt "ngẫu hứng" đến những cuộc phiêu lưu, khám phá công thức niềm vui của riêng bạn
+                    </p>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="form-box login">
+                    <h2>Đăng nhập</h2>
+                    <form onsubmit="login(event)">
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="person"></ion-icon></span>
+                            <input type="text" id="username-login">
+                            <label>Username</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                            <input type="email" id="email-login">
+                            <label>Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                            <input type="password" id="password-login">
+                            <label>Password</label>
+                        </div>
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Lưu mật khẩu</label>
+                            <a href="">Quên mật khẩu?</a>
+                        </div>
+                        <button type="submit" class="btn">Đăng nhập</button>
+                        <div class="login-register">
+                            <p>Bạn chưa có tài khoản?
+                                <a href="#" class="register-link">Đăng ký</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-box register">
+                    <h2>Đăng ký</h2>
+                    <form onsubmit="signup(event)">
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="person"></ion-icon></span>
+                            <input type="text" id="username">
+                            <label>Username</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                            <input type="text" id="email-singup">
+                            <label>Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                            <input type="password" id="password-singup">
+                            <label>Password</label>
+                        </div>
+                        <div class="remember-forgot">
+                            <label><input type="checkbox" id="checkbox-signup">Tôi đồng ý với các điều khoản</label>
+                        </div>
+                        <button type="submit" class="btn">Đăng ký</button>
+                        <div class="login-register">
+                            <p>Bạn đã có tài khoản?
+                                <a href="#" class="login-link">Đăng nhập</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="style2.js"></script>
+    <script src="Login.js"></script>
+</body>
+
+</html>

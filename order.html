@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="order.css">
+    <link rel="Website Icon" type="png" href="img/logo-title.png">
+    <title>Thanh toán</title>
+</head>
+
+<body>
+    <div class="hidden-box"></div>
+    <header>
+        <div class="wrap-boxin">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo-klook.png" alt=""></a>
+            </div>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+    </header>
+    <div class="top-bar">
+        <div class="box-status">
+            <div class="status">
+                <div class="circle-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Chọn đơn hàng</span>
+                <svg height="20" width="475">
+                    <line x1="0" y1="10" x2="475" y2="10" style="stroke:#08b371; stroke-width:1.5">
+                </svg>
+            </div>
+            <div class="status status-2">
+                <div class="circle-icon circle-icon-2">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+                <span>Điền thông tin</span>
+                <svg height="20" width="475">
+                    <line x1="0" y1="10" x2="475" y2="10" style="stroke:rgb(224, 224, 224); stroke-width:1.5">
+                </svg>
+            </div>
+            <div class="status status-3">
+                <div class="circle-icon circle-icon-3">
+                </div>
+                <span>Thanh toán</span>
+            </div>
+        </div>
+    </div>
+    <div class="container-order">
+        <div class="order-column-main">
+            <div class="fill-title">
+                <span>Điền thông tin</span>
+            </div>
+            <div class="box-info">
+                <h2>Thông tin đơn hàng <div class="left-child"></div>
+                </h2>
+                <div class="info-order">
+                    <div class="img-order">
+                        <img src="img/gkopobu6sxehrt8ewbv6.jpg" alt="">
+                    </div>
+                    <div class="name-order">
+                        <span>Tour Tham Quan Công Viên Bangkok Safari World kèm Dịch Vụ Đưa Đón Chung/Riêng</span>
+                    </div>
+                </div>
+                <div class="people-join">
+                    <p>Thông tin người tham gia</p>
+                    <button><i class="fa-solid fa-plus"></i><span>Thêm</span></button>
+                    <div class="info-people">
+                        <div class="info"><span>Họ</span><input type="text" placeholder="Vui lòng nhập"></div>
+                        <div class="info"><span>Tên</span><input type="text" placeholder="Vui lòng nhập"></div>
+                        <div class="info"><span>Số điện thoại</span><input type="text" placeholder="Vui lòng nhập">
+                        </div>
+                        <div class="remove-info">Xóa</div>
+                    </div>
+                </div>
+
+                <h2>Thông tin liên lạc <div class="left-child"></div>
+
+                    <div class="people-join">
+                        <button><i class="fa-solid fa-plus"></i><span>Thêm</span></button>
+                        <div class="info-people info-people-other">
+                            <div class="info"><span>Họ</span><input type="text" placeholder="Vui lòng nhập"></div>
+                            <div class="info"><span>Tên</span><input type="text" placeholder="Vui lòng nhập"></div>
+                            <div class="info"><span>Quốc gia/khu vực</span>
+                                <select id="country" name="country">
+                                    <option value="">--Chọn quốc gia--</option>
+                                    <option value="Vietnam">Việt Nam</option>
+                                    <option value="USA">Hoa Kỳ</option>
+                                    <option value="UK">Anh</option>
+                                    <option value="Japan">Nhật Bản</option>
+                                    <option value="Korea">Hàn Quốc</option>
+                                </select>
+                            </div>
+                            <div class="info"><span>Số điện thoại</span><input type="text" placeholder="Vui lòng nhập">
+                            </div>
+                            <div class="info"><span>Email</span><input type="text" placeholder="Vui lòng nhập"> </div>
+                            <div class="remove-info">Xóa</div>
+                        </div>
+                    </div>
+
+                    <h2>Loại ưu đãi<div class="left-child"></div>
+
+                        <div class="box-voucher">
+
+                            <span>Nhập <strong>VOUCHER</strong> nếu có:</span>
+                            <div class="wrap-inputbutton">
+                                <input type="text" placeholder="Nhập mã ưu đãi"><button>Áp dụng</button>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-order">
+                            <input type="checkbox"><span>Tôi muốn nhận các thông tin về chương trình ưu đãi và khuyến
+                                mãi đặc biệt từ Klook. Tôi hiểu rằng tôi có thể bỏ theo dõi khi không muốn nhận thông
+                                tin vào bất kỳ lúc nào.</span>
+                            <p>Tôi đã hiểu và đồng ý với <a href="#">Điều Khoản Sử Dụng Chung</a> và <a href="#"> Chính
+                                    Sách Quyền Riêng Tư Của Klook</a></p>
+                        </div>
+
+            </div>
+            <div class="pay-order">
+                <p>Đơn hàng của bạn sẽ được gửi đi sau khi bạn nhấn "Tiếp tục". Bạn có thể chọn phương thức thanh toán ở
+                    trang tiếp theo</p>
+                <button>Thanh toán</button>
+            </div>
+        </div>
+        <div class="box-fixed">
+            <div class="order-column-aside">
+                <div class="row-aside1">
+                    <h2>Tour Tham Quan Công Viên Bangkok Safari World kèm Dịch Vụ Đưa Đón Chung/Riêng</h2>
+                    <div class="info-ticket">
+                        <div class="info-date">
+                            <span>Ngày</span><input type="date">
+                        </div>
+                        <div class="info-quantity">
+                            <span>Số vé</span><input type="number" value="1">
+                        </div>
+                    </div>
+                    <div class="total-box">
+                        <span>Tổng cộng</span>
+                        <div class="total">
+                            ₫ 1,026,006
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="inside-footer">
+            <div class="content-footer-1">
+                <span>© 2014-2023 Klook. All Rights Reserved.</span>
+                <div class="logo-footer"></div>
+            </div>
+            <div class="content-footer-2">
+                <div class="boxwrap-column">
+                    <div class="column column1">
+                        <span>VỀ KLOOK</span>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Klook Blog</a></li>
+                            <li><a href="#">Cơ hội nghề nghiệp</a></li>
+                            <li><a href="#">Phiếu quà tặng Klook</a></li>
+                        </ul>
+                    </div>
+                    <div class="column column1">
+                        <span>ĐỐI TÁC</span>
+                        <ul>
+                            <li><a href="#">Đăng kí nhà cung cấp</a></li>
+                            <li><a href="#">Đối tác đăng nhập</a></li>
+                            <li><a href="#">Đối tác liên kết</a></li>
+                            <li><a href="#">Chương trình cho người nổi tiếng</a></li>
+                            <li><a href="#">Chương trình cho đại lý</a></li>
+                            <li><a href="#">Hợp tác marketing & phân phối</a></li>
+                        </ul>
+                    </div>
+                    <div class="column column1">
+                        <span>Điều khoản sử dụng</span>
+                        <ul>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật của Klook</a></li>
+                            <li><a href="#">Chính sách Cookie</a></li>
+                            <li><a href="#">Chương trình thưởng phát hiện lỗi phần mềm</a></li>
+                            <li><a href="#">Chính sách và quy định</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-footer-3">
+                <span>Các deal du lịch giảm giá đến 60% sẽ được gửi đến inbox của bạn</span>
+                <p>Khi nhấp vào Đăng ký, bạn đồng ý với <a href="#">Các Điều Kiện & Điều Khoản</a> và <a href="#">Chính
+                        Sách Bảo Mật</a> của chúng tôi</p>
+                <div class="input-button"> <input type="email" placeholder="Nhập email"><button>Đăng ký</button></div>
+                <div class="channel-pay">
+                    <h4>KÊNH THANH TOÁN</h4>
+                    <div class="wrap-logo">
+                        <div class="logo-pay logo-pay1"></div>
+                        <div class="logo-pay logo-pay2"></div>
+                        <div class="logo-pay logo-pay3"></div>
+                        <div class="logo-pay logo-pay4"></div>
+                        <div class="logo-pay logo-pay5"></div>
+                        <div class="logo-pay logo-pay6"></div>
+                        <div class="logo-pay logo-pay7"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="getproduct.js"></script>
+</body>
+
+</html>

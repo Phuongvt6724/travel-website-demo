@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Darkmode.css">
+    <link rel="icon" type="image/png" href="img/logo-title.png">
+    <title>Danh sách tour</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <button class="boxAudio">
+            <div class="bg-audio"></div>
+            <div class="wrap-audio">
+                <audio id="myAudio"
+                    src="img/Making My Way Remix - (JAPAN Remix) - Sơn Tùng M-TP -- Nhạc Hot TikTok Mới Nhất 2023.mp4"
+                    controls></audio>
+            </div>
+        </button>
+    </div>
+    <div class="boxhidden-location">
+        <div class="wrap-location">
+            <div class="box-location">
+                <div class="layeron-location">
+                    <i class="fa-solid fa-xmark" id="exitLocation"></i>
+                    <img src="img/background location.png" alt="">
+                    <p id="content"></p>
+                    <button id="find-location">Tra vị trí</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-game">
+        <div class="boxin-container">
+            <div class="box-game">
+                <div class="wrap-gamecontent">
+                    <h1>GAME XẾP HÌNH</h1>
+                    <i class="fa-solid fa-xmark" id="exitGame"></i>
+                    <div class="box-drop">
+                        <div class="box-square" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="box-rectangle" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="box-circle" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <div class="box-drag">
+                        <div class="circle" id="Textremove" draggable="true" ondragstart="drag(event)"></div>
+                        <div class="square" id="Textremove2" draggable="true" ondragstart="drag(event)"></div>
+                        <div class="rectangle" id="Textremove3" draggable="true" ondragstart="drag(event)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-filter">
+        <input class="check" type="checkbox" id="checkbox_toggle">
+        <div class="checkbox">
+            <label for="checkbox_toggle" class="slide">
+                <label for="checkbox_toggle" class="toggle"></label>
+                <label for="checkbox_toggle" class="text"><i class="fa-solid fa-sun"></i></label>
+                <label for="checkbox_toggle" class="text"><i class="fa-solid fa-moon"></i></label>
+            </label>
+        </div>
+    </div>
+    <div class="hidden-background"></div>
+    <header>
+        <div class="box-header">
+            <div class="boxrow-1">
+                <div class="box-1">
+                    <div class="logo">
+                        <a href="index.html"><img src="img/logo-klook.png" alt=""></a>
+                    </div>
+                    <div class="search">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" placeholder="Tìm theo điểm đến, hoạt động" class="search-box_input">
+                    </div>
+                </div>
+                <div class="box-2">
+                    <div id="toggle"><i class="fa-solid fa-bars"></i></div>
+                    <nav class="nav-bar">
+                        <ul>
+                            <li><a href="#" id="buttonLocation" onclick="event.preventDefault();">Định vị</a></li>
+                            <li><a href="#" id="buttonClick" onclick="event.preventDefault();">Game tích điểm</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="tourlist.html">Danh sách tour</a></li>
+                            <li><a href="Login.html" class="login">Đăng nhập</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- <div class="box-under">
+                <hr>
+                <nav>
+                    <ul>
+                        <li class="box-hover1"><a href="#"><i class="fa-solid fa-location-dot"></i>&nbspNơi bạn muốn
+                                đến</a>
+                            <div class="list-travel">
+                                <ul>
+                                    <li><a href="#">ĐIỂM ĐẾN HÀNG ĐẦU</a></li>
+                                    <li><a href="#">Đông Á</a><span>Tokyo&ensp;Seoul</span></li>
+                                    <li><a href="#">Đông Nam Á</a><span>Singapore</span></li>
+                                    <li><a href="#">Nam Á / Trung Đông</a><span>Kathmandu&ensp;Dubai</span></li>
+                                    <li><a href="#">Châu Đại Dương / Châu Phi</a><span>Sydney&ensp;Melbourne</span></li>
+                                    <li><a href="#">Châu Âu</a><span>LonDon&ensp;Paris</span></li>
+                                    <li><a href="#">Bắc Mỹ</a><span>New York&ensp;Los Angeles</span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="box-hover6"><a href="#">Tất cả</a>
+                            <div class="wrapbox-all">
+                                <div class="box-all">
+                                    <div class="wrap-content wrap-content1">
+                                        <ul>
+                                            <li><a href="#"><img
+                                                        src="img/category_36_experiences_l2_games_activity_parks.png"
+                                                        alt=""> Vui chơi giải trí</a></li>
+                                            <li><a href="#">Điểm tham quan</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Tour</a>&nbsp;<i class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Phiêu lưu khám phá thiên nhiên</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Massage & Suối nước nóng</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Trải nghiệm văn hóa</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Hoạt động dưới nước</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Thẻ tham quan</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Du thuyền</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap-content wrap-content2">
+                                        <ul>
+                                            <li><a href="#"><img
+                                                        src="img/category_36_experiences_l2_museums_exhibitions.webp"
+                                                        alt=""> Lưu trú</a></li>
+                                            <li><a href="#">Khách sạn</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap-content wrap-content3">
+                                        <ul>
+                                            <li><a href="#"><img src="img/category_experiences_l2_scooters_36.png"
+                                                        alt="">Di chuyển</a></li>
+                                            <li class="li-flex"><a href="#">Tàu hỏa&nbsp;<i
+                                                        class="fa-solid fa-angle-right"></i></a><span>Tàu Nhật Bản
+                                                    &ensp;Tàu châu Âu</span></li>
+                                            <li><a href="#">Vé tàu JR Pass</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Vé tàu châu Âu</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Xe sân bay</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">Tàu & Xe buýt sân bay</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Phà</a>&nbsp;<i class="fa-solid fa-angle-right"></i></li>
+                                            <li class="li-flex"><a href="#">Xe buýt&nbsp;<i
+                                                        class="fa-solid fa-angle-right"></i></a><span>Xe buýt liên tỉnh
+                                                    châu Âu</span><span>Xe buýt Singapore-Malaysia</span></li>
+                                            <li><a href="#">Thuê xe</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">Thuê xe có tài xế riêng</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Xe máy & Xe đạp</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap-content wrap-content4">
+                                        <ul>
+                                            <li><a href="#"><img src="img/category_36_more_to_explore_l1_all.webp"
+                                                        alt="">Thêm nhiều khám phá</a></li>
+                                            <li><a href="#">Ẩm thực</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">Mua sắm</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">WiFi & Thẻ SIM</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Dịch vụ du lịch</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="box-hover2 box-hover5"><a href="#">Vui chơi & giải trí</a>
+                            <div class="wrap-seri wrapseri-5">
+                                <ul>
+                                    <li><a href="#">Điểm tham quan</a></li>
+                                    <li><a href="#">Tour</a></li>
+                                    <li><a href="#">Phiêu lưu & Khám phá thiên nhiên</a></li>
+                                    <li><a href="#">Hoạt động dưới nước</a></li>
+                                    <li><a href="#">Massage & Suối nước nóng</a></li>
+                                    <li><a href="#">Trải nghiệm văn hóa</a></li>
+                                    <li><a href="#">Thẻ tham quan</a></li>
+                                    <li><a href="#">Du thuyền</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="box-hover2 box-hover4"><a href="#">Di chuyển</a>
+                            <div class="wrap-seri wrapseri-4">
+                                <ul>
+                                    <li><a href="#">Tàu hỏa</a></li>
+                                    <li><a href="#">Tàu Nhật Bản</a></li>
+                                    <li><a href="#">Vé tài JR Pass</a></li>
+                                    <li><a href="#">Vé tàu châu Âu</a></li>
+                                    <li><a href="#">Phà</a></li>
+                                    <li><a href="#">Xe sân bay</a></li>
+                                    <li><a href="#">Tàu & Xe buýt sân bay</a></li>
+                                    <li><a href="#">Xe buýt</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="box-hover2 box-hover3"><a href="#">Thuê xe</a>
+                            <div class="wrap-seri wrapseri-3">
+                                <ul>
+                                    <li><a href="#">Thuê xe có tài xế riêng</a></li>
+                                    <li><a href="#">Thuê xe</a></li>
+                                    <li><a href="#">Xe máy & Xe đạp</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Ẩm thực</a>
+                        </li>
+                        <li class="box-hover2"><a href="#">Thêm nhiều khám phá</a>
+                            <div class="wrap-seri wrapseri-2">
+                                <ul>
+                                    <li><a href="#">Thuê dụng cụ</a></li>
+                                    <li><a href="#">Dịch vụ du lịch</a></li>
+                                    <li><a href="#">WiFi & Thẻ SIM</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#"><img src="img/category_36_gift_card.png" alt=""
+                                    style="height: 24px; width: 24px;">&nbspPhiếu Quà Tặng Klook</a></li>
+                    </ul>
+                </nav>
+            </div> -->
+        </div>
+    </header>
+    <main>
+        <div class="banner-main">
+            <div class="wrap-slides">
+                <img src="img/banner-wb.png" alt="" id="image1">
+                <img src="img/rtw7fgqatgoc1vpcpamb.webp" alt="">
+            </div>
+            <div class="main-banner-title">
+                <h1>Vui chơi & Giải trí</h1>
+                <h2>Check in các điểm tham quan nổi tiếng, khám phá tour và nhiều hơn nữa</h2>
+                <div class="banner-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Tìm theo điểm đến, hoạt động" class="search-box_input">
+                    <div class="home-page-search-button">Tìm kiếm</div>
+                </div>
+            </div>
+            <div class="click-left"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="click-right"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+    </main>
+    <div class="container-box">
+        <div class="wrap-listbox">
+            <div class="listbox">
+                <div class="box-listmenu">
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/icon-list1.webp" alt="">
+                            <h4>Tất cả dịch vụ</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon2.webp" alt="">
+                            <h4>Công viên giải trí</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon3.webp" alt="">
+                            <h4>Cắm trại</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon4.webp" alt="">
+                            <h4>Tour du thuyền</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon5.webp" alt="">
+                            <h4>Bảo tàng</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon6.webp" alt="">
+                            <h4>Spa & Massage</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon7.webp" alt="">
+                            <h4>Nhảy dù</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon8.webp" alt="">
+                            <h4>Tour trong ngày</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon9.webp" alt="">
+                            <h4>Hop on hop off</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon10.webp" alt="">
+                            <h4>Vé tham quan</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon11.webp" alt="">
+                            <h4>Cáp treo</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon12.webp" alt="">
+                            <h4>Workshop</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon13.webp" alt="">
+                            <h4>Trải nghiệm trên không</h4>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="listmenu">
+                            <img src="img/list-icon14.webp" alt="">
+                            <h4>Di tích lịch sử</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button id="button-listmenu-right"><i class="fa-solid fa-angle-right"></i></button>
+            <button id="button-listmenu-left"><i class="fa-solid fa-angle-left"></i></button>
+        </div>
+        <div class="wrap-listbox">
+            <h2>Ưu đãi giới hạn</h3>
+                <a href="#">
+                    <div class="box-deals">
+                        <div class="status-box">
+                            <i class="fa-regular fa-clock"></i>Đang diễn ra
+                        </div>
+                        <span>Giảm 10000VND</span>
+                    </div>
+                </a>
+        </div>
+
+        <div class="wrap-product-listtour">
+            <h2>Danh sách tour</h2>
+            <div class="row1-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/product-list1.webp" alt="">
+                                <div class="text-product">
+                                    <p>VIỆT NAM</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists1.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Cáp Treo Sun World Ba Na Hill Đà Nẵng</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(17K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 790,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 800,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 10000VND
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists2.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Cáp Treo Sun World Ba Na Hill Đà Nẵng</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(1,540 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 510,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 600,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists3.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Vui Chơi Công Viên Châu Á Đà Nẵng với Tuỳ Chọn Vé Tham Gia Lễ Hội Âm Nhạc Hàn
+                                        Quốc M-Pack</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(2,597 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 95,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 100,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 5000VND
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists4.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Sun World Hon Thom Ticket</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(1,921 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 230,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 250,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 20000VND
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists5.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Xem Múa Rối Nước Thăng Long Tại Hà Nội</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.5</p><span>(328 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 118,300
+                                        </span><br>
+                                        <span>
+                                            ₫ 150,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists6.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Gói Tắm Bùn I Resort Nha Trang</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(797 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 160,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 170,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giá độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists7.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Nửa Ngày Tham Quan Khám Phá Địa Đạo Củ Chi</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(4,438 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 401,075
+                                        </span><br>
+                                        <span>
+                                            ₫ 450,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm giá đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/product-lists8.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Cáp Treo Sun World Fansipan Legend</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(2,911 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 780,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 800,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 20000VND
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/product-list1.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá VIỆT NAM
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="row1-listproduct row2-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product wrapbox-product2">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/hl1zwlv0aminefucw8xv.webp" alt="">
+                                <div class="text-product">
+                                    <p>THÁI LAN</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/d2990de4-芭提雅真理寺-KLOOK客路.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Ngôi Đền Chân Lý Sanctuary of Truth ở Pattaya</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(7,423 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 253,491
+                                        </span><br>
+                                        <span>
+                                            ₫ 337,892
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách đảm bảo về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/qghcgtbbekniivajgtvw.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Thẻ Đặc Quyền Du Lịch (Tourist Privilege Card) ở ICONSIAM</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.5</p><span>(4,890 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 200,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 250,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/ygjhzfghl96ilemicxyf.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Bảo Tàng Erawan và Thành Cổ Ancient City ở Bangkok</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(7,222 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 179,759
+                                        </span><br>
+                                        <span>
+                                            ₫ 270,314
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/gaxmyitluqms7rfkp8ks.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Ngày đi Đảo Phi Phi, Maya, Khai và Bamboo từ Phuket</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(6,797 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,033,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,115,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giá độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/rl1lyvcr1o8s7jj0tws9.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Sở Thú Safari World Bangkok</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(14K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 506,300
+                                        </span><br>
+                                        <span>
+                                            ₫ 675,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/dosl6udsgw6aj78f7fdh.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Đài Quan Sát Mahanakhon SkyWalk ở Bangkok</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(8,796 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 594,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 643,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/hsa2splemmgefzjiifbd.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Trải Nghiệm Du Thuyền White Orchid trên Sông Chao Phraya</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(1,067 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 481,075
+                                        </span><br>
+                                        <span>
+                                            ₫ 946,098
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Mua 4 giảm 25%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/mkibhtskhpvgqkdajjd4.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Ngày Tham Quan Chợ Nổi Damnoen Saduak, Maeklong và Amphawa</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(8,796 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 934,691
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,216,412
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giá độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/hl1zwlv0aminefucw8xv.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá THÁI LAN
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product2"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product2"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="row1-listproduct row3-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product wrapbox-product3">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/rsqrmmpig4e6chyg01kq.webp" alt="">
+                                <div class="text-product">
+                                    <p>SINGAPORE</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/fkbzoquelbkruji6zipw.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Vườn Gardens by the Bay ở Singapore</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(45K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 347,491
+                                        </span><br>
+                                        <span>
+                                            ₫ 377,892
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách đảm bảo về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/sqc5y7k6ytviniiteksf.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Klook Pass Singapore</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(5,445 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,336,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 2,411,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Klook độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/ndbi5gba57hojd7dz38p.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Thuỷ Cung S.E.A. Sentosa ở Singapore</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(31K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 364,759
+                                        </span><br>
+                                        <span>
+                                            ₫ 450,314
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi hè
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/ic8ug8bymgsexlfyr7kp.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Cáp Treo Singapore Sky Pass</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(19K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 485,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 607,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 50%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/hn0x3xjtb6y1wxdhwvsi.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Bảo Tàng ArtScience tại Marina Bay Sands</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(11K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 364,300
+                                        </span><br>
+                                        <span>
+                                            ₫ 399,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 11%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/buer1oa6e11piuon2ogo.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Sở Thú Singapore kèm Xe Điện</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(13K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 824,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 867,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 32%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/eo9xj5btye4qqrp3b7yr.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Các Điểm Tham Quan tại Sân Bay Jewel Changi ở Singapore</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(7,267 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 104,075
+                                        </span><br>
+                                        <span>
+                                            ₫ 138,098
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 9%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/miqmpfbmi5bcsmcp1ohd.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Ngày Tham Quan Chợ Nổi Damnoen Saduak, Maeklong và Amphawa</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(7,144 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 694,691
+                                        </span><br>
+                                        <span>
+                                            ₫ 750,412
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm giá đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/rsqrmmpig4e6chyg01kq.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá SINGAPORE
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product3"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product3"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="row1-listproduct row4-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product wrapbox-product4">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/joujewixz7mie6ijytyf.webp" alt="">
+                                <div class="text-product">
+                                    <p>HÀN QUỐC</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/zvoalerm5fq94ni3sve4.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Lotte World ở Seoul </h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.5</p><span>(20K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 728,916
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,102,263
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/l1w5tm06ttyxg4adufxy.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Tháp N Seoul</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(25K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 222,231
+                                        </span><br>
+                                        <span>
+                                            ₫ 284,455
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/cy9sswil108zrxgov3ap.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Tham Quan Khu Phi Quân Sự (DMZ) từ Seoul</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(4,895 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 641,802
+                                        </span><br>
+                                        <span>
+                                            ₫ 995,593
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/hlardl1tyabrnwl308mn.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Trải Nghiệm Thuê Hanbok (Cửa Hàng Hanboknam Gyeongbokgung) và Tạo Kiểu Tóc Hàn
+                                        Quốc</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.5</p><span>(6,570 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 133,338
+                                        </span><br>
+                                        <span>
+                                            ₫ 177,784
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/bxbgf23wcwrzgexk9xuf.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Tham Quan Đồng Cỏ Alpaca / Đảo Nami / Petite France / Vườn Garden of
+                                        Morning Calm / Xe Đạp Đường Sắt từ Seoul</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(8,075 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 253,623
+                                        </span><br>
+                                        <span>
+                                            ₫ 266,467
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 5%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/tkeekjgeclccanaz4hzn.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Thủy Cung Coex ở Seoul</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(2,649 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 462,683
+                                        </span><br>
+                                        <span>
+                                            ₫ 515,575
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/87ebe267-NANTA-Show.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Nanta Show Ở Seoul</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(8,805 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 596,316
+                                        </span><br>
+                                        <span>
+                                            ₫ 864,345
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/miqmpfbmi5bcsmcp1ohd.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Thẻ Tham Quan Busan (Visit Busan Pass)</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(201 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 871,144
+                                        </span><br>
+                                        <span>
+                                            ₫ 900,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/joujewixz7mie6ijytyf.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá HÀN QUỐC
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product4"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product4"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+
+            <div class="row1-listproduct row5-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product wrapbox-product5">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/nhatban.webp" alt="">
+                                <div class="text-product">
+                                    <p>NHẬT BẢN</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/dql4i5kvipvuc7njh57u.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Thẻ Have Fun in Kansai Pass Vui Chơi ở Kansai 1 Tuần</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.5</p><span>(112 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 469,578
+                                        </span><br>
+                                        <span>
+                                            ₫ 922,386
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi hè
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/l1w5tm06ttyxg4adufxy.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Bảo Tàng teamLab Planets TOKYO</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(3,318 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 586,973
+                                        </span><br>
+                                        <span>
+                                            ₫ 634,127
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Ưu đãi đặc biệt
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/wvmlksk0aoarmzdxvxkw.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Lâu Đài Osaka</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(847 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 100,624
+                                        </span><br>
+                                        <span>
+                                            ₫ 125,121
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/hlardl1tyabrnwl308mn.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Klook Pass Greater Tokyo</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.4</p><span>(1,090 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 838,533
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,693,837
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Klook độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/xzcwe54qpksfwu5einnf.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Thẻ Osaka Amazing Pass Tham Quan Osaka</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(1,875 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 335,815
+                                        </span><br>
+                                        <span>
+                                            ₫ 350,231
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 5%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/x1zr2snhl4oxfjebadz2.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Studio Pass ở Universal Studios Nhật Bản</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(14K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,442,277
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,164,512
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 28%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/jtjfqspnpjakxriqml5t.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Tokyo Disney Resort</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(20K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,408,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,500,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/qdmvavy2z78rexfsb8a6.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Vào Cửa Thủy Cung Shikoku (Kagawa)</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.2</p><span>(278 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 201,248
+                                        </span><br>
+                                        <span>
+                                            ₫ 250,244
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 25%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/nhatban.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá NHẬT BẢN
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product5"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product5"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="row1-listproduct row6-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product wrapbox-product6">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/oc8pkxyzdxb7jcvr5qhy.webp" alt="">
+                                <div class="text-product">
+                                    <p>Mỹ</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/lt32jbjll7ialri8m5jf.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Thẻ Tham Quan Klook Pass New York</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.1</p><span>(60 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,477,618
+                                        </span><br>
+                                        <span>
+                                            ₫ 2,298,524
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Klook độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/vv5pgm9aefuropvypxqu.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Vòng Quay High Roller ở Las Vegas</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(442 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 615,248
+                                        </span><br>
+                                        <span>
+                                            ₫ 967,127
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/huleahbvzrti9mh0axjj.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Đài Quan Sát Summit One Vanderbilt</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.9</p><span>(76 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 911,582
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,072,612
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/gntctxwk8lkyunv03xut.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Universal Studios Orlando</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(949 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 3,597,812
+                                        </span><br>
+                                        <span>
+                                            ₫ 4,125,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Klook độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/dbi709whruqy1vox2xll.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Tham Quan Hẻm Núi Linh Dương Hạ Lower Antelope và Hẻm Núi Horseshoe Bend từ
+                                        Las Vegas</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(336 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 5,371,120
+                                        </span><br>
+                                        <span>
+                                            ₫ 5,500,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/rbllsn1pkfcv0hvsmkll.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Trải Nghiệm Đi Xe UTV Raptor Vượt Địa Hình tại Nông Trại Kualoa ở Hawaii</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.9</p><span>(66 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 3,559,950
+                                        </span><br>
+                                        <span>
+                                            ₫ 4,039,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/ra9rklhobund2be0brny.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Xem Kịch Broadway Aladdin ở New York</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(101 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,886,000
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,921,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/aumkoog5bvnkof1nwpju.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Tour Warner Bros. Studio Hollywood ở Los Angeles</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.6</p><span>(176 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 1,585,067
+                                        </span><br>
+                                        <span>
+                                            ₫ 1,641,592
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 5%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/oc8pkxyzdxb7jcvr5qhy.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá Mỹ
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product6"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product6"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="row1-listproduct row7-listproduct">
+                <div class="box-hiidenproduct">
+                    <div class="wrapbox-product wrapbox-product7">
+                        <a href="#">
+                            <div class="first-product">
+                                <div class="background-support"></div>
+                                <img src="img/dailoan.webp" alt="">
+                                <div class="text-product">
+                                    <p>Đài Loan</p>
+                                    <span>Khám phá <i class="fa-solid fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/jb06sxkvwy0iok1uqagc.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Xpark ở Đào Viên (Taoyuan)</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.9</p><span>(17K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 191,860
+                                        </span><br>
+                                        <span>
+                                            ₫ 213,623
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 5%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/nrvernjjs6kv0hbw1sdy.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Đài Quan Sát Taipei 101</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(32K+ đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 460,464
+                                        </span><br>
+                                        <span>
+                                            ₫ 470,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/a18mnkv3soojl9pmzavz.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Combo Vé Cáp Treo Gondola Maokong ở Đài Bắc</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(6,622 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 176,511
+                                        </span><br>
+                                        <span>
+                                            ₫ 230,232
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/imt9t5aedk0wztw2hymr.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Trang Trại Zhang Mei Ama's Farm ở Nghi Lan (Yilan)</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(1,949 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 153,488
+                                        </span><br>
+                                        <span>
+                                            ₫ 161,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/frvcre680l3ett2xxspa.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Đại Dương Farglory Ocean ở Hoa Liên (Hualien)</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(4,808 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 529,534
+                                        </span><br>
+                                        <span>
+                                            ₫ 592,142
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 17%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/vwglg5zciwudfd3toom3.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Địa Chất Dã Liễu (Yehliu) ở Tân Đài Bắc</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.8</p><span>(8,209 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 92,093
+                                        </span><br>
+                                        <span>
+                                            ₫ 100,000
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giá độc quyền
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/gmfvrcu7ym61zw4i673d.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Giải Trí E-DA ở Cao Hùng</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(2,200 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 475,813
+                                        </span><br>
+                                        <span>
+                                            ₫ 689,929
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Chính sách bảo đảm về giá
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="order.html">
+                            <div class="list-product">
+                                <img src="img/nbnvkplk0jkjfdsqgsze.webp" alt="">
+                                <div class="under-img">
+                                    <h3>Vé Công Viên Giải Trí Lihpao Land ở Đài Trung</h3>
+                                    <div class="evaluate-product">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>4.7</p><span>(3,269 đánh giá)</span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span>
+                                            ₫ 383,720
+                                        </span><br>
+                                        <span>
+                                            ₫ 460,464
+                                        </span>
+                                    </div>
+                                    <div class="deals-product">
+                                        Giảm 16%
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="last-product">
+                                <img src="img/dailoan.webp" alt="">
+                                <div class="content-lastproduct">
+                                    <div class="explore-more">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                    <div class="text-content">
+                                        Khám phá Đài Loan
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="buttonleft-product-row1" id="buttonleft-product7"><i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="buttonright-product-row1" id="buttonright-product7"><i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="inside-footer">
+            <div class="content-footer-1">
+                <span>© 2014-2023 Klook. All Rights Reserved.</span>
+                <div class="logo-footer"></div>
+            </div>
+            <div class="content-footer-2">
+                <div class="boxwrap-column">
+                    <div class="column column1">
+                        <span>VỀ KLOOK</span>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Klook Blog</a></li>
+                            <li><a href="#">Cơ hội nghề nghiệp</a></li>
+                            <li><a href="#">Phiếu quà tặng Klook</a></li>
+                        </ul>
+                    </div>
+                    <div class="column column1">
+                        <span>ĐỐI TÁC</span>
+                        <ul>
+                            <li><a href="#">Đăng kí nhà cung cấp</a></li>
+                            <li><a href="#">Đối tác đăng nhập</a></li>
+                            <li><a href="#">Đối tác liên kết</a></li>
+                            <li><a href="#">Chương trình cho người nổi tiếng</a></li>
+                            <li><a href="#">Chương trình cho đại lý</a></li>
+                            <li><a href="#">Hợp tác marketing & phân phối</a></li>
+                        </ul>
+                    </div>
+                    <div class="column column1">
+                        <span>Điều khoản sử dụng</span>
+                        <ul>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật của Klook</a></li>
+                            <li><a href="#">Chính sách Cookie</a></li>
+                            <li><a href="#">Chương trình thưởng phát hiện lỗi phần mềm</a></li>
+                            <li><a href="#">Chính sách và quy định</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-footer-3">
+                <span>Các deal du lịch giảm giá đến 60% sẽ được gửi đến inbox của bạn</span>
+                <p>Khi nhấp vào Đăng ký, bạn đồng ý với <a href="#">Các Điều Kiện & Điều Khoản</a> và <a href="#">Chính
+                        Sách Bảo Mật</a> của chúng tôi</p>
+                <div class="input-button"> <input type="email" placeholder="Nhập email"><button>Đăng ký</button></div>
+                <div class="channel-pay">
+                    <h4>KÊNH THANH TOÁN</h4>
+                    <div class="wrap-logo">
+                        <div class="logo-pay logo-pay1"></div>
+                        <div class="logo-pay logo-pay2"></div>
+                        <div class="logo-pay logo-pay3"></div>
+                        <div class="logo-pay logo-pay4"></div>
+                        <div class="logo-pay logo-pay5"></div>
+                        <div class="logo-pay logo-pay6"></div>
+                        <div class="logo-pay logo-pay7"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="style3.js"></script>
+    <script src="style4.js"></script>
+    <script src="Showbar.js"></script>
+    <script src="Darkmode.js"></script>
+    <script src="Game.js"></script>
+    <script src="setproduct.js"></script>
+</body>
+
+</html>

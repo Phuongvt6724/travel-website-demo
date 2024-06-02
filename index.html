@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Darkmode.css" />
+    <link rel="icon" type="image/png" href="img/logo-title.png" />
+    <title>Trang chủ</title>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <button class="boxAudio">
+        <div class="bg-audio"></div>
+        <div class="wrap-audio">
+          <audio
+            id="myAudio"
+            src="img/Making My Way Remix - (JAPAN Remix) - Sơn Tùng M-TP -- Nhạc Hot TikTok Mới Nhất 2023.mp4"
+            controls
+          ></audio>
+        </div>
+      </button>
+    </div>
+    <div class="boxhidden-location">
+      <div class="wrap-location">
+        <div class="box-location">
+          <div class="layeron-location">
+            <i class="fa-solid fa-xmark" id="exitLocation"></i>
+            <img src="img/background location.png" alt="" />
+            <p id="content"></p>
+            <button id="find-location">Tra vị trí</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-game">
+      <div class="boxin-container">
+        <div class="box-game">
+          <div class="wrap-gamecontent">
+            <h1>GAME XẾP HÌNH</h1>
+            <i class="fa-solid fa-xmark" id="exitGame"></i>
+            <div class="box-drop">
+              <div
+                class="box-square"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"
+              ></div>
+              <div
+                class="box-rectangle"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"
+              ></div>
+              <div
+                class="box-circle"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"
+              ></div>
+            </div>
+            <div class="box-drag">
+              <div
+                class="circle"
+                id="Textremove"
+                draggable="true"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="square"
+                id="Textremove2"
+                draggable="true"
+                ondragstart="drag(event)"
+              ></div>
+              <div
+                class="rectangle"
+                id="Textremove3"
+                draggable="true"
+                ondragstart="drag(event)"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-filter">
+      <input class="check" type="checkbox" id="checkbox_toggle" />
+      <div class="checkbox">
+        <label for="checkbox_toggle" class="slide">
+          <label for="checkbox_toggle" class="toggle"></label>
+          <label for="checkbox_toggle" class="text"
+            ><i class="fa-solid fa-sun"></i
+          ></label>
+          <label for="checkbox_toggle" class="text"
+            ><i class="fa-solid fa-moon"></i
+          ></label>
+        </label>
+      </div>
+    </div>
+    <div class="hidden-background"></div>
+    <header>
+      <div class="box-header">
+        <div class="boxrow-1">
+          <div class="box-1">
+            <div class="logo">
+              <a href="index.html"><img src="img/logo-klook.png" alt="" /></a>
+            </div>
+            <div class="search">
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+              <input
+                type="text"
+                placeholder="Tìm theo điểm đến, hoạt động"
+                class="search-box_input"
+              />
+            </div>
+          </div>
+          <div class="box-2">
+            <div id="toggle"><i class="fa-solid fa-bars"></i></div>
+            <nav class="nav-bar">
+              <ul>
+                <li>
+                  <a
+                    href="#"
+                    id="buttonLocation"
+                    onclick="event.preventDefault();"
+                    >Định vị</a
+                  >
+                </li>
+                <li>
+                  <a href="#" id="buttonClick" onclick="event.preventDefault();"
+                    >Game tích điểm</a
+                  >
+                </li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="tourlist.html">Danh sách tour</a></li>
+                <li><a href="Login.html" class="login">Đăng nhập</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- <div class="box-under">
+                <hr>
+                <nav>
+                    <ul>
+                        <li class="box-hover1"><a href="#"><i class="fa-solid fa-location-dot"></i>&nbspNơi bạn muốn
+                                đến</a>
+                            <div class="list-travel">
+                                <ul>
+                                    <li><a href="#">ĐIỂM ĐẾN HÀNG ĐẦU</a></li>
+                                    <li><a href="#">Đông Á</a><span>Tokyo&ensp;Seoul</span></li>
+                                    <li><a href="#">Đông Nam Á</a><span>Singapore</span></li>
+                                    <li><a href="#">Nam Á / Trung Đông</a><span>Kathmandu&ensp;Dubai</span></li>
+                                    <li><a href="#">Châu Đại Dương / Châu Phi</a><span>Sydney&ensp;Melbourne</span></li>
+                                    <li><a href="#">Châu Âu</a><span>LonDon&ensp;Paris</span></li>
+                                    <li><a href="#">Bắc Mỹ</a><span>New York&ensp;Los Angeles</span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="box-hover6"><a href="#">Tất cả</a>
+                            <div class="wrapbox-all">
+                                <div class="box-all">
+                                    <div class="wrap-content wrap-content1">
+                                        <ul>
+                                            <li><a href="#"><img
+                                                        src="img/category_36_experiences_l2_games_activity_parks.png"
+                                                        alt=""> Vui chơi giải trí</a></li>
+                                            <li><a href="#">Điểm tham quan</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Tour</a>&nbsp;<i class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Phiêu lưu khám phá thiên nhiên</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Massage & Suối nước nóng</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Trải nghiệm văn hóa</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Hoạt động dưới nước</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Thẻ tham quan</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Du thuyền</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap-content wrap-content2">
+                                        <ul>
+                                            <li><a href="#"><img
+                                                        src="img/category_36_experiences_l2_museums_exhibitions.webp"
+                                                        alt=""> Lưu trú</a></li>
+                                            <li><a href="#">Khách sạn</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap-content wrap-content3">
+                                        <ul>
+                                            <li><a href="#"><img src="img/category_experiences_l2_scooters_36.png"
+                                                        alt="">Di chuyển</a></li>
+                                            <li class="li-flex"><a href="#">Tàu hỏa&nbsp;<i
+                                                        class="fa-solid fa-angle-right"></i></a><span>Tàu Nhật Bản
+                                                    &ensp;Tàu châu Âu</span></li>
+                                            <li><a href="#">Vé tàu JR Pass</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Vé tàu châu Âu</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Xe sân bay</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">Tàu & Xe buýt sân bay</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Phà</a>&nbsp;<i class="fa-solid fa-angle-right"></i></li>
+                                            <li class="li-flex"><a href="#">Xe buýt&nbsp;<i
+                                                        class="fa-solid fa-angle-right"></i></a><span>Xe buýt liên tỉnh
+                                                    châu Âu</span><span>Xe buýt Singapore-Malaysia</span></li>
+                                            <li><a href="#">Thuê xe</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">Thuê xe có tài xế riêng</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Xe máy & Xe đạp</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap-content wrap-content4">
+                                        <ul>
+                                            <li><a href="#"><img src="img/category_36_more_to_explore_l1_all.webp"
+                                                        alt="">Thêm nhiều khám phá</a></li>
+                                            <li><a href="#">Ẩm thực</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">Mua sắm</a>&nbsp;<i class="fa-solid fa-angle-right"></i>
+                                            </li>
+                                            <li><a href="#">WiFi & Thẻ SIM</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                            <li><a href="#">Dịch vụ du lịch</a>&nbsp;<i
+                                                    class="fa-solid fa-angle-right"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="box-hover2 box-hover5"><a href="tourlist.html">Vui chơi & giải trí</a>
+                            <div class="wrap-seri wrapseri-5">
+                                <ul>
+                                    <li><a href="#">Điểm tham quan</a></li>
+                                    <li><a href="#">Tour</a></li>
+                                    <li><a href="#">Phiêu lưu & Khám phá thiên nhiên</a></li>
+                                    <li><a href="#">Hoạt động dưới nước</a></li>
+                                    <li><a href="#">Massage & Suối nước nóng</a></li>
+                                    <li><a href="#">Trải nghiệm văn hóa</a></li>
+                                    <li><a href="#">Thẻ tham quan</a></li>
+                                    <li><a href="#">Du thuyền</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="box-hover2 box-hover4"><a href="#">Di chuyển</a>
+                            <div class="wrap-seri wrapseri-4">
+                                <ul>
+                                    <li><a href="#">Tàu hỏa</a></li>
+                                    <li><a href="#">Tàu Nhật Bản</a></li>
+                                    <li><a href="#">Vé tài JR Pass</a></li>
+                                    <li><a href="#">Vé tàu châu Âu</a></li>
+                                    <li><a href="#">Phà</a></li>
+                                    <li><a href="#">Xe sân bay</a></li>
+                                    <li><a href="#">Tàu & Xe buýt sân bay</a></li>
+                                    <li><a href="#">Xe buýt</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="box-hover2 box-hover3"><a href="#">Thuê xe</a>
+                            <div class="wrap-seri wrapseri-3">
+                                <ul>
+                                    <li><a href="#">Thuê xe có tài xế riêng</a></li>
+                                    <li><a href="#">Thuê xe</a></li>
+                                    <li><a href="#">Xe máy & Xe đạp</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Ẩm thực</a>
+                        </li>
+                        <li class="box-hover2"><a href="#">Thêm nhiều khám phá</a>
+                            <div class="wrap-seri wrapseri-2">
+                                <ul>
+                                    <li><a href="#">Thuê dụng cụ</a></li>
+                                    <li><a href="#">Dịch vụ du lịch</a></li>
+                                    <li><a href="#">WiFi & Thẻ SIM</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#"><img src="img/category_36_gift_card.png" alt=""
+                                    style="height: 24px; width: 24px;">&nbspPhiếu Quà Tặng Klook</a></li>
+                    </ul>
+                </nav>
+            </div> -->
+      </div>
+    </header>
+    <main>
+      <div class="banner-main">
+        <div class="wrap-slides">
+          <img src="img/banner-wb.png" alt="" id="image1" />
+          <img src="img/rtw7fgqatgoc1vpcpamb.webp" alt="" />
+        </div>
+        <div class="main-banner-title">
+          <h1>THẾ GIỚI TRỌN NIỀM VUI</h1>
+          <h2>
+            Từ chuyến phượt "ngẫu hứng" đến những cuộc phiêu lưu, khám phá công
+            thức niềm vui của riêng bạn
+          </h2>
+          <div class="banner-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              placeholder="Tìm theo điểm đến, hoạt động"
+              class="search-box_input"
+            />
+            <div class="home-page-search-button">Tìm kiếm</div>
+          </div>
+        </div>
+        <div class="click-left"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="click-right"><i class="fa-solid fa-angle-right"></i></div>
+      </div>
+    </main>
+    <div class="container-box">
+      <div class="box-content-first">
+        <h1>KHÁC BIỆT MANG TÊN <strong>KLOOK</strong></h1>
+        <span
+          >Chúng tôi cam kết mang đến những
+          <strong>chuyến đi khác biệt, đẳng cấp, độc đáo</strong> mà
+          <strong>chỉ có tại Klook.</strong></span
+        >
+        <div class="container-3D">
+          <div class="wrap-box3D">
+            <div class="box-3D">
+              <div class="blur-background"></div>
+              <div class="front">
+                <div class="content-front">
+                  <h3>100% Dịch Vụ Hàng Không 5 Sao</h3>
+                  <span
+                    >Trải nghiệm dịch vụ hàng không luôn được Klook ưu tiên hàng
+                    đầu.</span
+                  >
+                </div>
+              </div>
+
+              <div class="back">
+                <div class="content-back">
+                  <h3>Hàng Không 5 Sao</h3>
+                  <span
+                    >Là lựa chọn tuyệt vời cho những chuyến bay đến Mỹ như: ANA,
+                    Japan Airlines,...</span
+                  >
+                  <button>Xem ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wrap-box3D wrap-box3D-2">
+            <div class="box-3D">
+              <div class="blur-background"></div>
+              <div class="front">
+                <div class="content-front">
+                  <h3>Khách Sạn Ngay Trung Tâm</h3>
+                  <span
+                    >Tọa lạc ở các thành phố lớn thuận tiện cho việc di chuyển
+                    và kết hợp thăm người thân.</span
+                  >
+                </div>
+              </div>
+
+              <div class="back">
+                <div class="content-back">
+                  <h3>Khách Sạn Trung Tâm</h3>
+                  <span
+                    >Các khách sạn Klook chọn đều năm ở vị trí trung tâm thành
+                    phố New York, Las Vegas, trung Little Saigon (khu người
+                    Việt)</span
+                  >
+                  <button>Xem ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wrap-box3D wrap-box3D-3">
+            <div class="box-3D">
+              <div class="blur-background"></div>
+              <div class="front">
+                <div class="content-front">
+                  <h3>Tặng Chuyến Tham Quan Mexico</h3>
+                  <span>Một Hành trình - Hai Quốc gia. Chỉ có tại Klook</span>
+                </div>
+              </div>
+
+              <div class="back">
+                <div class="content-back">
+                  <h3>Tham Quan Mexico</h3>
+                  <span
+                    >Du khách có thể trải nghiệm văn hóa ẩm thực truyền thống
+                    Mexico với các món nổi tiếng như: rượu Tequila, Tacos,
+                    Chilaquiles, Tortillas -loại bánh ngô hình tròn dẹt được
+                    nướng trên chảo đất sét, bên trên phủ nấm, bông bí, ớt đỏ
+                    khô, thịt heo xay, bột bắp cháy trộn lẫn...</span
+                  >
+                  <button>Xem ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-content-1">
+        <h1>Ưu đãi hấp dẫn</h1>
+        <div class="banner-ground">
+          <a href="#"><img src="img/banner-1.webp" alt="" /></a>
+          <a href="#"><img src="img/banner-2.webp" alt="" /></a>
+          <a href="#"><img src="img/banner-3.webp" alt="" /></a>
+        </div>
+      </div>
+
+      <div class="box-content-1 box-content-2">
+        <h1>Vì sao bạn nên chọn Klook</h1>
+        <div class="banner-ground-2">
+          <div class="content content-1">
+            <img
+              src="img/Discover_the_possibilities-removebg-preview.png"
+              alt=""
+            />
+            <h3>Nhiều lựa chọn</h3>
+            <p>
+              Tìm kiếm niềm vui của bạn với gần nửa triệu điểm tham quan, khách
+              sạn và hơn thế nữa.
+            </p>
+          </div>
+          <div class="content content-2">
+            <img src="img/Enjoy_deals_delights-removebg-preview.png" alt="" />
+            <h3>Ưu đãi giá tốt</h3>
+            <p>
+              Dịch vụ hàng đầu. Giá tốt. Và nhận Klook credit để được giảm giá
+              cho đơn hàng tiếp theo.
+            </p>
+          </div>
+          <div class="content content-3">
+            <img src="img/Exploring_made_easy-removebg-preview.png" alt="" />
+            <h3>Dễ dàng khám phá</h3>
+            <p>
+              Đặt hàng phút chót, bỏ qua hàng chờ và được miễn phí hủy để tận
+              hưởng trọn vẹn.
+            </p>
+          </div>
+          <div class="content content-4">
+            <img src="img/Travel_you_can_trust-removebg-preview.png" alt="" />
+            <h3>Đáng tin cậy</h3>
+            <p>
+              Đọc đánh giá chân thực và được hỗ trợ tận tình. Chúng tôi sẽ phục
+              vụ bạn từng bước.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="header_wrapper">
+        <h1>Hot nhất tại Klook</h1>
+        <div class="boxmega-hottravel">
+          <a href="#" class="billboard-item">
+            <div class="box-item">
+              <h3>Hoạt Động Du Lịch Việt Nam Bán Chạy</h3>
+              <div class="box-rank-1">
+                <div class="box-rank-image">
+                  <div class="rank-number">1</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé Cáp Treo Sun World Ba Na Hills Đà Nẵng</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Đây là quần thể du lịch nghỉ dưỡng kết hợp vui chơi giải
+                      trí đẳng cấp bậc nhất Việt Nam, được mệnh danh là “chốn
+                      bồng lai tiên cảnh".</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-2">
+                  <div class="rank-number">2</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé VinWonders Nha Trang</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Khám phá một trong những công viên giải trí nổi tiếng
+                      nhất Nha Trang.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-3">
+                  <div class="rank-number">3</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>
+                    Tour Ngày Khám Phá Đồng Bằng Sông Cửu Long, Khởi hành từ Tp.
+                    HCM
+                  </p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Tận hưởng kỳ nghỉ như mơ với các hoạt động du lịch bán
+                      chạy nhất ở Klook. Đang có giá ưu đãi cực tốt dành riêng
+                      cho bạn.</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="billboard-item">
+            <div class="box-item">
+              <h3>Hoạt Động Du Lịch Singapore Bán Chạy</h3>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-4">
+                  <div class="rank-number">1</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé Universal Studios Singapore</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Cùng trẻ nhỏ vui chơi và gặp gỡ những nhân vật hoạt hình
+                      yêu thích như Elmo từ Madagascar, và cùng chụp hình với
+                      Minions!</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-5">
+                  <div class="rank-number">2</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé Vườn Gardens by the Bay ở Singapore</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Đi dạo quanh Flower Dome để ngắm nhìn những cây ô liu
+                      hàng nghìn năm tuổi, cây bao báp khổng lồ và nhiều loại
+                      thực vật kỳ lạ</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-6">
+                  <div class="rank-number">3</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé Thuỷ Cung S.E.A. Sentosa ở Singapore</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >BIỂN. Thủy cung tại Resorts World Sentosa là một trong
+                      những thủy cung lớn nhất thế giới và là nơi sinh sống của
+                      hơn 100.000 sinh vật biển đại diện cho 1.000 loài trong
+                      hơn 45 môi trường sống đa dạng</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="billboard-item">
+            <div class="box-item">
+              <h3>Hoạt Động Du Lịch Thái Lan Bán Chạy</h3>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-7">
+                  <div class="rank-number">1</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Trải Nghiệm Let's Relax Spa ở Chiang Mai</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Chiêm ngưỡng Chiang Mai ở khía cạnh văn hoá, lịch sửa và
+                      thiên nhiên thật độc đáo. Tham gia ngay thôi!</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-8">
+                  <div class="rank-number">2</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé Thuỷ Cung SEA LIFE Bangkok Ocean World</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Tránh phải xếp hàng dài với làn dành riêng cho khách của
+                      Klook tại SEA Life Bangkok Ocean World</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="box-rank-1">
+                <div class="box-rank-image box-rank-image-9">
+                  <div class="rank-number">3</div>
+                </div>
+                <div class="box-rank-content">
+                  <p>Vé Sở Thú Safari World Bangkok</p>
+                  <div class="box-item-hotx2">
+                    <img
+                      src="img/Icon_subtitle_2x.png"
+                      alt=""
+                      style="width: 8px"
+                      height="10px;"
+                    />
+                    <span
+                      >Dành một ngày khám phá Safari World Bangkok với 2 khu
+                      công viên: Safari Park - vườn thú mở, và Marine Park -
+                      công viên hải dương</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="theme-wrap">
+        <h1>Trải nghiệm hấp dẫn cho mọi người</h1>
+        <div class="wrap-boxtheme">
+          <div class="boxtheme">
+            <div class="inside-box">
+              <div class="content-boxthem">
+                <h2>Chốt Gấp Kèo Sing - Thái</h2>
+                <span>Deal du lịch HOT nhất Singapore & Thái Lan</span>
+              </div>
+              <div class="button-text"><span>Khám phá thêm</span></div>
+            </div>
+          </div>
+          <div class="boxtheme boxtheme-2">
+            <div class="inside-box">
+              <div class="content-boxthem">
+                <h2>Hè Rồi Đi Thôi!</h2>
+                <span
+                  >Gợi ý du lịch mùa hè hấp dẫn trên Klook. Từ Việt Nam vươn ra
+                  Thế Giới.</span
+                >
+              </div>
+              <div class="button-text"><span>Khám phá thêm</span></div>
+            </div>
+          </div>
+          <div class="boxtheme boxtheme-3">
+            <div class="inside-box">
+              <div class="content-boxthem">
+                <h2>Càng Mua Càng Hời</h2>
+                <span>Ưu đãi hấp dẫn. Càng mua nhiều - càng thêm lợi.</span>
+              </div>
+              <div class="button-text"><span>Khám phá thêm</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-content-1 box-content-3">
+        <h1>Tìm kiếm niềm vui của bạn</h1>
+        <div class="wrapbox">
+          <a href="#">
+            <div class="box-title">
+              <div class="inside-box">
+                <span>TP Hồ Chí Minh</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="box-title box-title-2">
+              <div class="inside-box">
+                <span>Đà Nẵng</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="box-title box-title-3">
+              <div class="inside-box">
+                <span>Bangkok</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="box-title box-title-4">
+              <div class="inside-box">
+                <span>Singapore</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="box-title box-title-5">
+              <div class="inside-box">
+                <span>Hà Nội</span>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="box-title box-title-6">
+              <div class="inside-box">
+                <span>Phú Quốc</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="box-content-1 box-content-4">
+        <h1>Khám phá nhiều hơn nữa</h1>
+        <div class="box-main-banner">
+          <div class="box-left-banner">
+            <div class="logo-banner">
+              <img src="img/w81j2nxwdexxuhtenhxo.webp" alt="" />
+              <div class="main-title">
+                <div class="war-title-1">
+                  <h3>Giảm 5% cho đơn hàng đầu tiên trên ứng dụng</h3>
+                  <span
+                    >Đặt hàng dễ dàng hơn trên ứng dụng. Sử dụng mã
+                    "BetterOnApp" để được giảm giá!</span
+                  >
+                </div>
+                <div class="war-title-2">
+                  <h5>Nhận & gửi magic link đến email của bạn</h5>
+                  <div class="row-data">
+                    <input
+                      type="email"
+                      name=""
+                      id="value-eamil"
+                      placeholder="Email"
+                    /><button>Gửi</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-right-banner">
+            <img src="img/wfah0fvn7wi10schty1d.webp" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="event-boxmain">
+        <div class="eventbox">
+          <div class="wrap-content">
+            <img src="img/veeon5jzqyjccj5m3lkg.webp" alt="" />
+            <p>Xem blog của Klook</p>
+            <span
+              >Theo dõi các ý tưởng của Klook về xu hướng du lịch, lịch trình và
+              các mẹo đi du lịch</span
+            >
+            <div class="button-event">Xem thêm</div>
+          </div>
+        </div>
+
+        <div class="eventbox">
+          <div class="wrap-content">
+            <img src="img/arto4pac628jzdsuu3df.webp" alt="" />
+            <p>Nhận credits miễn phí</p>
+            <span
+              >Tìm hiểu cách nhận giảm giá cho đơn hàng tiếp theo khi đặt hàng
+              và để lại đánh giá</span
+            >
+            <div class="button-event">Xem thêm</div>
+          </div>
+        </div>
+
+        <div class="eventbox">
+          <div class="wrap-content">
+            <img src="img/ggxmmubhiq9nxkbobcro.webp" alt="" />
+            <p>Nhận ưu đãi khi mời bạn bè</p>
+            <span
+              >Sau khi bạn của bạn đăng ký và hoàn thành đơn hàng đầu tiên, bạn
+              sẽ nhận ₫100,000 điểm thưởng</span
+            >
+            <div class="button-event">Mời bạn bè</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-content-1 box-content-5">
+        <h1>Đối tác</h1>
+        <div class="box-partner">
+          <div class="logo-partner logo-partner-1"></div>
+          <div class="logo-partner logo-partner-2"></div>
+          <div class="logo-partner logo-partner-3"></div>
+          <div class="logo-partner logo-partner-4"></div>
+          <div class="logo-partner logo-partner-5"></div>
+          <div class="logo-partner logo-partner-6"></div>
+          <div class="logo-partner logo-partner-7"></div>
+          <div class="logo-partner logo-partner-8"></div>
+          <div class="logo-partner logo-partner-9"></div>
+          <div class="logo-partner logo-partner-10"></div>
+        </div>
+      </div>
+
+      <div class="box-content-1 box-content-5">
+        <h1>Góc truyền thông</h1>
+        <div class="box-partner">
+          <div class="logo-partner logo-partner-11"></div>
+          <div class="logo-partner logo-partner-12"></div>
+          <div class="logo-partner logo-partner-13"></div>
+          <div class="logo-partner logo-partner-14"></div>
+          <div class="logo-partner logo-partner-15"></div>
+          <div class="logo-partner logo-partner-16"></div>
+          <div class="logo-partner logo-partner-17"></div>
+          <div class="logo-partner logo-partner-18"></div>
+        </div>
+      </div>
+      <video
+        src="img/Klook Car Rental_ Explore the world at your own pace.mp4"
+        width="100%"
+        height="600px"
+        controls
+      ></video>
+    </div>
+    <footer>
+      <div class="inside-footer">
+        <div class="content-footer-1">
+          <span>© 2014-2023 Klook. All Rights Reserved.</span>
+          <div class="logo-footer"></div>
+        </div>
+        <div class="content-footer-2">
+          <div class="boxwrap-column">
+            <div class="column column1">
+              <span>VỀ KLOOK</span>
+              <ul>
+                <li><a href="#">Về chúng tôi</a></li>
+                <li><a href="#">Klook Blog</a></li>
+                <li><a href="#">Cơ hội nghề nghiệp</a></li>
+                <li><a href="#">Phiếu quà tặng Klook</a></li>
+              </ul>
+            </div>
+            <div class="column column1">
+              <span>ĐỐI TÁC</span>
+              <ul>
+                <li><a href="#">Đăng kí nhà cung cấp</a></li>
+                <li><a href="#">Đối tác đăng nhập</a></li>
+                <li><a href="#">Đối tác liên kết</a></li>
+                <li><a href="#">Chương trình cho người nổi tiếng</a></li>
+                <li><a href="#">Chương trình cho đại lý</a></li>
+                <li><a href="#">Hợp tác marketing & phân phối</a></li>
+              </ul>
+            </div>
+            <div class="column column1">
+              <span>Điều khoản sử dụng</span>
+              <ul>
+                <li><a href="#">Điều khoản sử dụng</a></li>
+                <li><a href="#">Chính sách bảo mật của Klook</a></li>
+                <li><a href="#">Chính sách Cookie</a></li>
+                <li>
+                  <a href="#">Chương trình thưởng phát hiện lỗi phần mềm</a>
+                </li>
+                <li><a href="#">Chính sách và quy định</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="content-footer-3">
+          <div class="content-wrap-3">
+            <span
+              >Các deal du lịch giảm giá đến 60% sẽ được gửi đến inbox của
+              bạn</span
+            >
+            <p>
+              Khi nhấp vào Đăng ký, bạn đồng ý với
+              <a href="#">Các Điều Kiện & Điều Khoản</a> và
+              <a href="#">Chính Sách Bảo Mật</a> của chúng tôi
+            </p>
+            <div class="input-button">
+              <input type="email" placeholder="Nhập email" /><button>
+                Đăng ký
+              </button>
+            </div>
+            <div class="channel-pay">
+              <h4>KÊNH THANH TOÁN</h4>
+              <div class="wrap-logo">
+                <div class="logo-pay logo-pay1"></div>
+                <div class="logo-pay logo-pay2"></div>
+                <div class="logo-pay logo-pay3"></div>
+                <div class="logo-pay logo-pay4"></div>
+                <div class="logo-pay logo-pay5"></div>
+                <div class="logo-pay logo-pay6"></div>
+                <div class="logo-pay logo-pay7"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="wrap-canvas">
+      <canvas id="myCanvas" width="500" height="80"></canvas>
+    </div>
+    <script src="style3.js"></script>
+    <script src="Darkmode.js"></script>
+    <script src="Showbar.js"></script>
+    <script src="Game.js"></script>
+    <script src="canvas.js"></script>
+  </body>
+</html>
